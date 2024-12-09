@@ -1,3 +1,385 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+
+
+
+
+body {
+  padding: 0;
+  margin: 0; 
+  height: 100vh;
+  background-color: #1f1f1f;
+  font-family: "DM Sans", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+#generate-cards,
+#delete-all-cards {
+  margin-right: 10px;
+}
+
+
+
+
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/*style="height: 300px; overflow-y: auto; position: relative;" */
+.card-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 25%;
+  overflow-y: auto;
+  position: relative;
+}
+
+form{
+
+}
+
+.glitch-container {
+  top: 5%;
+  position: absolute;
+  color: var(--color);
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: #e8e6e3;
+}
+
+
+/*card*/
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px royalblue;
+  padding: 20px;
+  width: 100px;
+  height: 200px;
+}
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 18px;
+  text-align: center;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: royalblue;
+  border: none;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.delete-button::before {
+  content: 'x';
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.delete-button:hover{
+  background-color: red;
+}
+
+
+
+
+/*inputs*/
+.inputs-container{
+  display: flex;
+  position:relative;
+  align-items: center;
+  flex-direction: column;
+  animation: slideIn 1s ease forwards;
+  height: 50vh;
+}
+
+
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+ul {
+  position: absolute; 
+  top: 20px; 
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+}
+
+
+label {
+  position: relative;
+}
+
+
+
+
+
+.heading {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  background: #18191f;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 46px;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 20px;
+  box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/*footer*/
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  padding: 0;
+  margin: 0;
+  background-color: #1b1b1b;
+  animation: slideup 1s ease forwards;
+  margin-top: 20px;
+}
+
+.footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  list-style: none;
+}
+.footer li {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footer a{
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  color:#e8e6e3;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+
+.footer a:hover {
+  background-color: royalblue;
+}
+
+@keyframes slideup{
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*input*/
+
+input[type="text"], /* Input field */
+textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: rgb(191, 191, 191) 
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3); 
+  box-shadow: 0px 0px 10px royalblue; 
+}
+
+textarea {
+  height: 100px; 
+  resize: none;
+}
+
+@keyframes glow {
+  0% {
+    filter: (0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+button {
+  background-color: royalblue;
+  color: white; 
+  font-family: "DM Sans", cursive;
+  font-size: 17px;
+  padding: 10px 75px; 
+  border: none;
+  border-radius: 25px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+  margin-top: 20px
+}
+
+#delete-all-cards {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border:none;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+
+button:hover {
+  background-color: #2600ff; 
+  transform: translateY(2px); 
+}
+button:active {
+  background-color: #2600ff; 
+  transform: scale(1.05) translateY(2px); 
+  box-shadow: 0px 0px 20px royalblue;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Glitch effect I stole */
+
+
+
+.stack {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stack span {
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 1.5rem;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.stack span:nth-child(odd) { --glitch-translate: 8px; }
+.stack span:nth-child(even) { --glitch-translate: -8px; }
+
+.right {
+  text-align: right;
+  width: 100%;
+  font-size: 1rem;
+}
+
+@keyframes stack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+  };
+  60% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  4%, 100% {  text-shadow: none; transform: none; }
+}
